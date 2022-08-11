@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // importing of components
-import App from './components/app/App';
+import App from './components/App';
 
 // get set to render our components
 const root = ReactDOM.createRoot(

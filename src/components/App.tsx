@@ -1,5 +1,6 @@
 import './App.scss';
 import Box, { Box1, Button }  from './1-generics';
+import TodoComp from './2-hooks';
 
 
 
@@ -17,7 +18,11 @@ function App() {
             <Button
                 onDoubleClick={() => { alert('double clicked')}}
                 styles={{background:'skyblue', borderRadius: '5px', padding: 5, paddingInline:10}}
-            >Click me</Button>
+            >
+                Click me
+            </Button>
+
+            <TodoComp></TodoComp>
         </div>
     );
 }

@@ -1,21 +1,6 @@
 import './App.scss';
-// import { useNavigate } from 'react-router-dom';
+import Box from './1-generics';
 
-//** Working with generic
-interface boxProps {
-    children: React.ReactNode
-}
-function Box ({children}: boxProps) {
-    return (
-        <>
-            {children}
-        </>
-    )
-}
-
-
-// import {Input} from '../input/Input'
-// import {TodoEch} from '../todo/TodoEch'
 
 
 function App() {

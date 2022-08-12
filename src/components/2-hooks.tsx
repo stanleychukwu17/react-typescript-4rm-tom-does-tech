@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react'
 /**
-remove a todoItem from the list of todo
-create a separate component for adding an item to the todo
+ * You can watch the lecture from 20:00 to see him use the useReducer hook
 */
 
 

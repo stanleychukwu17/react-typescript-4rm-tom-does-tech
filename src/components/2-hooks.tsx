@@ -4,13 +4,14 @@ import React, { useRef, useState } from 'react'
 */
 
 
-// the component that will be used to add a new item to the todoList
+// this component will be used to add a new item to the todoList
 type addToListProps = {
     handleClick: (description: todoState['description']) => void;
 }
 
 const AddItemToTheTodoList = ({handleClick}: addToListProps) => {
     const inputRef = useRef<HTMLInputElement>(null)
+    //  or const inputRef = useRef<HTMLInputElement>(null!) add exclamation mark as we learnt from codeEvolution
 
     return (
         <div className="">
@@ -48,6 +49,7 @@ export default function TodoComp() {
 
     const removeItem = (idToDelete: todoState['id']) => {
         const newList = items.filter(echItem => echItem.id !== idToDelete)
+        // or const newList: todoState[] = items.filter(echItem => echItem.id !== idToDelete)
         setItems(newList)
     }
 

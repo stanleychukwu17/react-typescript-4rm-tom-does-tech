@@ -35,7 +35,7 @@ export function Button({children, styles, ...rest}: buttonProps) {
     )
 }
 
-// or my own simple version
+// or my own simple version - from codeEvolution
 type buttonProps_2 = {
     children: React.ReactNode
     styles?: React.CSSProperties

@@ -10,13 +10,14 @@ type addToListProps = {
 }
 
 const AddItemToTheTodoList = ({handleClick}: addToListProps) => {
-    const inputRef = useRef<HTMLInputElement>(null)
+    const inputRef = useRef<HTMLInputElement>(null!)
     //  or const inputRef = useRef<HTMLInputElement>(null!) add exclamation mark as we learnt from codeEvolution
 
     return (
         <div className="">
             <input ref={inputRef} type="text" placeholder='Add an item to your todo list'/>
             <button onClick={() => {
+                // if you did useRef<HTMLInputElement>(null!) in the above, then you can do this below: if (inputRef.current.value.length > 0) {}
                 if (inputRef.current && inputRef.current.value.length > 0) {
                     handleClick(inputRef.current.value)
                     inputRef.current.value = ''

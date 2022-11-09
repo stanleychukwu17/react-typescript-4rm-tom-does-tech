@@ -1,17 +1,21 @@
 import React, { useRef, useState } from 'react'
 /**
- * You can watch the lecture from 20:00 to see him use the useReducer hook
+    You can watch the lecture from 20:00 to see him use the useReducer hook
 */
 
+// creates the initial todo items
+type todoState = {
+    id: number,
+    description: string
+}
 
-// this component will be used to add a new item to the todoList
 type addToListProps = {
     handleClick: (description: todoState['description']) => void;
 }
 
+// this component will be used to add a new item to the todoList
 const AddItemToTheTodoList = ({handleClick}: addToListProps) => {
     const inputRef = useRef<HTMLInputElement>(null!)
-    //  or const inputRef = useRef<HTMLInputElement>(null!) add exclamation mark as we learnt from codeEvolution
 
     return (
         <div className="">
@@ -27,14 +31,6 @@ const AddItemToTheTodoList = ({handleClick}: addToListProps) => {
     )
 }
 
-
-
-// creates the initial todo items
-type todoState = {
-    id: number,
-    description: string
-}
-
 const itemsList: todoState[] = [
     {id:1, description:'Going home'},
     {id:2, description:'Will see my love soon'},
@@ -44,13 +40,14 @@ export default function TodoComp() {
     const [items, setItems] = useState<todoState[]>(itemsList)
 
     const addItem = (description: todoState['description']) => {
+        // setItems([...items, {id:items.length+1, description}]) - this is the teacher method, his id generation becomes buggy once you start deleting items from the list
+        // in my method below, i pick the last id and add increases it, if there are not items in the list, i default to 1.
         setItems([...items, {id:items[items.length - 1].id + 1 || items.length+1, description}])
-        // setItems([...items, {id:items.length+1, description}])
     }
 
     const removeItem = (idToDelete: todoState['id']) => {
         const newList = items.filter(echItem => echItem.id !== idToDelete)
-        // or const newList: todoState[] = items.filter(echItem => echItem.id !== idToDelete)
+        // or const newList: todoState[] = items.filter(echItem => echItem.id !== idToDelete), but no need for this method because type script is smart enough to know that items are of type todoState[]
         setItems(newList)
     }
 

@@ -40,6 +40,8 @@ type buttonProps_2 = {
     children: React.ReactNode
     styles?: React.CSSProperties
 } & React.ComponentProps<React.ElementType>
+// if you want, you can update the last line to :
+// React.ComponentProps<React.ElementType<HTMLButtonElement>> or React.ComponentProps<'button'>
 
 export function Button2({children, styles, ...rest}: buttonProps_2) {
     return (

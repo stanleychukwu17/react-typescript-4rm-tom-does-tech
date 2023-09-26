@@ -13,7 +13,12 @@ type addToListProps = {
     handleClick: (description: todoState['description']) => void;
 }
 
-// this component will be used to add a new item to the todoList
+const itemsList: todoState[] = [
+    {id:1, description:'Going home'},
+    {id:2, description:'Will see my love soon'},
+]
+
+// sub_component: it will be used to add a new item to the todoList
 const AddItemToTheTodoList = ({handleClick}: addToListProps) => {
     const inputRef = useRef<HTMLInputElement>(null!)
 
@@ -31,11 +36,7 @@ const AddItemToTheTodoList = ({handleClick}: addToListProps) => {
     )
 }
 
-const itemsList: todoState[] = [
-    {id:1, description:'Going home'},
-    {id:2, description:'Will see my love soon'},
-]
-
+// main component
 export default function TodoComp() {
     const [items, setItems] = useState<todoState[]>(itemsList)
 
@@ -47,7 +48,6 @@ export default function TodoComp() {
 
     const removeItem = (idToDelete: todoState['id']) => {
         const newList = items.filter(echItem => echItem.id !== idToDelete)
-        // or const newList: todoState[] = items.filter(echItem => echItem.id !== idToDelete), but no need for this method because type script is smart enough to know that items are of type todoState[]
         setItems(newList)
     }
 
